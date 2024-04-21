@@ -1,0 +1,66 @@
+<form [formGroup]=" ResgisterForm">
+    <div class="form-group">
+      <label for="apartmentNumber">Apartment Number:</label>
+      <input type="number" class="form-control" id="apartmentNumber" formControlName="apartmentNumber" required>
+      <div class="error-message" *ngIf="ResgisterForm.get('apartmentNumber')?.touched && ResgisterForm.get('apartmentNumber')?.errors">
+        Apartment Number is required and must be a number.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="floorNumber">Floor Number:</label>
+      <input type="number" class="form-control" id="floorNumber" formControlName="floorNumber" required>
+      <div class="error-message" *ngIf="ResgisterForm.get('floorNumber')?.touched && ResgisterForm.get('floorNumber')?.errors">
+        Floor Number is required and must be a number.
+      </div>
+    </div>
+    <div class="form-group">
+        <label for="Surface">Surface:</label>
+        <input type="number" class="form-control" id="Surface" formControlName="Surface" required>
+        <div class="error-message" *ngIf="ResgisterForm.get('Surface')?.touched && ResgisterForm.get('Surface')?.errors">
+          Surface is required and must be a number.
+        </div>
+      </div>
+  
+    <div class="form-group">
+      <label for="terrace">Terrace:</label>
+      <select class="form-control" id="terrace" formControlName="terrace" required>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+    </div>
+  
+    <div class="form-group" *ngIf="ResgisterForm.get('terrace')?.value === 'yes'">
+      <label for="surfaceTerrace">Surface Terrace:</label>
+      <input type="number" class="form-control" id="surfaceTerrace" formControlName="surfaceTerrace" required>
+      <div class="error-message" *ngIf="ResgisterForm.get('surfaceTerrace')?.touched && ResgisterForm.get('surfaceTerrace')?.errors">
+        Surface Terrace is required and must be a number.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="category">Category:</label>
+      <select class="form-control" id="category" formControlName="category" required>
+        <option value="S+1">S+1</option>
+        <option value="S+2">S+2</option>
+        <option value="S+3">S+3</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea class="form-control" id="description" formControlName="description" required minlength="10"></textarea>
+      <div class="error-message" *ngIf="ResgisterForm.get('description')?.touched && ResgisterForm.get('description')?.errors">
+        Description must be at least 10 characters long.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="residence">Residence:</label>
+      <input type="number" class="form-control" id="residence" formControlName="residence" required>
+      <div class="error-message" *ngIf="ResgisterForm.get('residence')?.touched && ResgisterForm.get('residence')?.errors">
+        Residence ID is required and must be a number.
+      </div>
+    </div>
+<button (click)="Add()" class="btn btn-primary" [disabled]="ResgisterForm.invalid">Add</button> 
+  </form>

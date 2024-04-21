@@ -11,21 +11,37 @@
 <input type="submit" value="save" (click)="save()" [disabled]="login.invalid  || pwd.invalid">
 
 <p>FormGroup</p>
+
 <form [formGroup]="ResgisterForm">
     <label>Nom</label>
     <input type="text" formControlName="nom">
+    <div class="alert alert-danger" *ngIf="this.ResgisterForm.controls['nom'].invalid && this.ResgisterForm.controls['nom'].touched ">
+        <p *ngIf="this.ResgisterForm.controls['nom'].hasError('required')"> Nom doit etre Obligatoir</p>
+        <p *ngIf="this.ResgisterForm.controls['nom'].hasError('minlength')"> Nom min 6 caractére</p>
+    </div>
 
 
     <label>prenom</label>
     <input type="text" formControlName="prenom">
+    <div class="alert alert-danger" *ngIf="this.ResgisterForm.controls['prenom'].invalid && this.ResgisterForm.controls['prenom'].touched ">
+        <p *ngIf="this.ResgisterForm.controls['prenom'].hasError('required')"> Nom doit etre Obligatoir</p>
+        <p *ngIf="this.ResgisterForm.controls['prenom'].hasError('minlength')"> Nom min 6 caractére</p>
+    </div>
 
 
     <label>email</label>
     <input type="text" formControlName="email">
+    <div class="alert alert-danger"*ngIf="this.ResgisterForm.controls['email'].invalid && this.ResgisterForm.controls['email'].touched ">
+        <p *ngIf="this.ResgisterForm.controls['email'].hasError('email')"> email doit etre Obligatoir</p>
+    </div>
 
 
     <label>tel</label>
     <input type="text" formControlName="tel">
+    <div class="alert alert-danger" *ngIf="this.ResgisterForm.controls['tel'].invalid && this.ResgisterForm.controls['tel'].touched ">
+        <p *ngIf="this.ResgisterForm.controls['nom'].hasError('required')"> Nom doit etre Obligatoir</p>
+        <p *ngIf="this.ResgisterForm.controls['nom'].hasError('minlength')"> Nom min 6 caractére</p>
+    </div>
     <input type="submit" value="save" (click)="test()" [disabled]="ResgisterForm.invalid">
 
 </form>
