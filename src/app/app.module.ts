@@ -13,6 +13,7 @@ import { ResidenceComponent } from './residence/residence.component';
 import { ApartementComponent } from './apartement/apartement.component';
 import { FormComponent } from './form/form.component';
 import { FormAppartmentComponent } from './form-appartment/form-appartment.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormAppartmentComponent } from './form-appartment/form-appartment.compo
     ResidenceComponent,
     ApartementComponent,
     FormComponent,
-    FormAppartmentComponent
+    FormAppartmentComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
